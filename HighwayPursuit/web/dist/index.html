@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover"
+    />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="screen-orientation" content="landscape" />
+    <title>Highway Pursuit</title>
+    <script type="module" crossorigin src="./assets/index-C4qLzx2r.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-DPKeUaRA.css">
+  </head>
+  <body>
+    <div id="rotate-hint" class="rotate-hint" aria-hidden="true">
+      <div class="rotate-card">
+        <div class="rotate-icon">📱︎↻</div>
+        <p>Gire o celular na <strong>horizontal</strong></p>
+        <p class="hint">O jogo roda em tela deitada para ter mais pista.</p>
+      </div>
+    </div>
+
+    <div id="app">
+      <!-- MENU PRINCIPAL -->
+      <div id="menu" class="panel">
+        <h1>Highway Pursuit</h1>
+        <p class="sub">Escolha o modo de jogo</p>
+
+        <button id="btn-mode-infinite" class="btn mode-btn" data-mode="infinite">
+          <span class="mode-title">Infinito</span>
+          <span class="mode-desc">2 jogadores online — sem limite de tempo</span>
+        </button>
+
+        <button id="btn-mode-timed" class="btn mode-btn" data-mode="timed">
+          <span class="mode-title">Tempo</span>
+          <span class="mode-desc">2 jogadores — polícia tem 3 min para capturar</span>
+        </button>
+
+        <button id="btn-mode-solo" class="btn mode-btn" data-mode="solo_ai">
+          <span class="mode-title">Solo</span>
+          <span class="mode-desc">1 jogador + IA (escolha polícia ou ladrão)</span>
+        </button>
+      </div>
+
+      <!-- ESCOLHA DE PAPEL (SOLO) -->
+      <div id="solo-role" class="panel hidden">
+        <h1>Modo Solo</h1>
+        <p class="sub">Quem você quer ser? O outro será controlado pela IA.</p>
+        <button id="btn-role-police" class="btn primary">Jogar como Polícia</button>
+        <button id="btn-role-thief" class="btn danger">Jogar como Ladrão</button>
+        <button id="btn-solo-back" class="btn ghost">Voltar</button>
+      </div>
+
+      <!-- LOBBY MULTIPLAYER -->
+      <div id="lobby" class="panel hidden">
+        <h1 id="lobby-title">Multiplayer</h1>
+        <p id="lobby-sub" class="sub">Host = Polícia · Convidado = Ladrão</p>
+
+        <div class="roles">
+          <div class="role police">Host = Polícia</div>
+          <div class="role thief">Convidado = Ladrão</div>
+        </div>
+
+        <button id="btn-create" class="btn primary">Criar sala</button>
+
+        <div class="or">ou entre com o código</div>
+
+        <div class="join-row">
+          <input id="room-input" type="text" maxlength="6" placeholder="ABC123" autocomplete="off" />
+          <button id="btn-join" class="btn">Entrar</button>
+        </div>
+
+        <button id="btn-lobby-back" class="btn ghost">Voltar ao menu</button>
+
+        <p id="lobby-status" class="status"></p>
+        <div id="share-box" class="share hidden">
+          <p>Código da sala:</p>
+          <strong id="room-code"></strong>
+          <button id="btn-copy" class="btn small">Copiar link</button>
+          <p class="hint">Envie o link/código para o outro jogador. A partida começa ao conectar.</p>
+        </div>
+      </div>
+
+      <div id="game-wrap" class="hidden">
+        <canvas id="game" width="1280" height="720"></canvas>
+        <div id="touch-ui" class="touch-ui">
+          <div class="pad left">
+            <button data-action="left" class="pad-btn">◀</button>
+            <button data-action="right" class="pad-btn">▶</button>
+          </div>
+          <div class="pad mid">
+            <button data-action="accel" class="pad-btn hold">▲</button>
+            <button data-action="brake" class="pad-btn hold">▼</button>
+            <button data-action="nitro" class="pad-btn hold nitro">N</button>
+          </div>
+          <div class="pad right skills">
+            <button data-action="skill1" class="pad-btn skill">1</button>
+            <button data-action="skill2" class="pad-btn skill">2</button>
+          </div>
+        </div>
+        <button id="btn-exit" class="btn exit">Sair</button>
+      </div>
+    </div>
+  </body>
+</html>
